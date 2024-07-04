@@ -24,7 +24,6 @@
 
 # Navigation
 alias c="clear"
-alias e="exit"
 
 # Git
 alias pull="git pull origin"
@@ -47,6 +46,8 @@ alias n="nano"
 #------------------------------------------------------------------------------#
 
 # Starship
-eval "$(Starship init bash)"
+#eval "$(Starship init bash)"
 
+# fzf
+eval "$(fzf --bash)"
 
