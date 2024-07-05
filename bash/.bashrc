@@ -28,6 +28,7 @@ alias ll="lsd -la"
 alias ls="lsd -ll"
 alias cat="bat"
 alias cd="z"
+alias lg="lazygit"
 
 # Git
 alias pull="git pull origin"
