@@ -24,6 +24,10 @@
 
 # Navigation
 alias c="clear"
+alias ll="lsd -la"
+alias ls="lsd -ll"
+alias cat="bat"
+alias cd="z"
 
 # Git
 alias pull="git pull origin"
@@ -45,9 +49,11 @@ alias n="nano"
 #	Eval
 #------------------------------------------------------------------------------#
 
-# Starship
-#eval "$(Starship init bash)"
+# starship
+eval "$(starship init bash)"
 
 # fzf
 eval "$(fzf --bash)"
 
+# zoxide
+eval "$(zoxide init bash)"
