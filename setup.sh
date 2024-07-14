@@ -103,14 +103,6 @@ else
 	ln -sf "$PWD/nvim/lua/nvim-settings.lua" "$NVIM_DIR/lua"
 fi
 
-if [ -e "$NVIM_DIR/lua/plugins/0-dependencies.lua" ]; then
-	echo "0-dependencies.lua does exist"
-else
-	echo "0-dependencies.lua does not exist"
-	echo "ln -sf "$PWD/nvim/lua/plugins/0-dependencies.lua" "$NVIM_DIR/lua/plugins""
-	ln -sf "$PWD/nvim/lua/plugins/0-dependencies.lua" "$NVIM_DIR/lua/plugins"
-fi
-
 if [ -e "$NVIM_DIR/lua/plugins/1.1-colortheme.lua" ]; then
 	echo "1.1-colortheme.lua does exist"
 else
@@ -191,6 +183,13 @@ else
 	ln -sf "$PWD/nvim/lua/plugins/4.1-debugger.lua" "$NVIM_DIR/lua/plugins"
 fi
 
+if [ -e "$NVIM_DIR/lua/plugins/4.2-vim-test.lua" ]; then
+	echo "4.2-vim-test.lua does exist"
+else
+	echo "4.2-vim-test.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/4.2-vim-test.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/4.2-vim-test.lua" "$NVIM_DIR/lua/plugins"
+fi
 #if [ -e "$NVIM_DIR/lua/plugins/0X.lua" ]; then
 #	echo ".lua does exist"
 #else
