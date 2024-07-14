@@ -64,6 +64,14 @@ else
 	ln -sf "$PWD/nvim/lua/nvim-settings.lua" "$NVIM_DIR/lua"
 fi
 
+if [ -e "$NVIM_DIR/lua/plugins/00.dependencies.lua" ]; then
+	echo "00.dependencies.lua does exist"
+else
+	echo "00.dependencies.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/00.dependencies.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/00.dependencies.lua" "$NVIM_DIR/lua/plugins"
+fi
+
 if [ -e "$NVIM_DIR/lua/plugins/01.theme.lua" ]; then
 	echo "01.theme.lua does exist"
 else
@@ -71,7 +79,6 @@ else
 	echo "ln -sf "$PWD/nvim/lua/plugins/01.theme.lua" "$NVIM_DIR/lua/plugins""
 	ln -sf "$PWD/nvim/lua/plugins/01.theme.lua" "$NVIM_DIR/lua/plugins"
 fi
-
 
 if [ -e "$NVIM_DIR/lua/plugins/02.statusbar.lua" ]; then
 	echo "02.statusbar.lua does exist"
@@ -81,7 +88,23 @@ else
 	ln -sf "$PWD/nvim/lua/plugins/02.statusbar.lua" "$NVIM_DIR/lua/plugins"
 fi
 
-#if [ -e "$NVIM_DIR/lua/plugins/.lua" ]; then
+if [ -e "$NVIM_DIR/lua/plugins/03.file-browser.lua" ]; then
+	echo "03.file-browser.lua does exist"
+else
+	echo "03.file-browser.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/03.file-browser.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/03.file-browser.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+if [ -e "$NVIM_DIR/lua/plugins/04.fuzzy-finder.lua" ]; then
+	echo "04.fuzzy-finder.lua does exist"
+else
+	echo "04.-fuzzy-finder.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/04.fuzzy-finder.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/04.fuzzy-finder.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+#if [ -e "$NVIM_DIR/lua/plugins/0X.lua" ]; then
 #	echo ".lua does exist"
 #else
 #	echo ".lua does not exist"
