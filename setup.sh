@@ -6,7 +6,7 @@ TMUX_DIR="$XDG_CONFIG_HOME"/tmux
 NVIM_DIR="$XDG_CONFIG_HOME"/nvim
 
 
-echo "setting up tmux"
+echo "[01]/[XX] setting up tmux"
 
 if [ -d "$TMUX_DIR"  ]; then
 	echo "tmux directory does exist"
@@ -18,7 +18,7 @@ else
 fi
 
 echo "linking tmux.conf"
-if [ -e "$TMUX_DIR"/tmux.conf ]; then
+if [ -e "$TMUX_DIR/tmux.conf" ]; then
 	echo "tmux.conf does exist"
 else
 	echo "tmux conf does not exist"
@@ -34,3 +34,57 @@ else
 	echo "git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR/plugins/tpm""
 	git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR/plugins/tpm"
 fi
+
+
+echo "[02]/[XX] setitng up neovim"
+if [ -d "$NVIM_DIR" ]; then
+	echo "nvim directory does exist"
+else
+	echo "nvim directory does not exist"
+	echo "mkdir "$NVIM_DIR/lua/plugins""
+	mkdir "$NVIM_DIR"
+	mkdir "$NVIM_DIR/lua"
+	mkdir "$NVIM_DIR/lua/plugins"
+fi
+
+echo "linking nvim configuration files"
+if [ -e "$NVIM_DIR/init.lua" ]; then
+	echo "init.lua does exist"
+else
+	echo "init.lua does not exist"
+	echo "ln -sf "$PWD/nvim/init.lua" "$NVIM_DIR""
+	ln -sf "$PWD/nvim/init.lua" "$NVIM_DIR"
+fi
+
+if [ -e "$NVIM_DIR/lua/nvim-settings.lua" ]; then
+	echo "nvim-settings.lua does exist"
+else
+	echo "nvim-settings.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/nvim-settings.lua" "$NVIM_DIR/lua""
+	ln -sf "$PWD/nvim/lua/nvim-settings.lua" "$NVIM_DIR/lua"
+fi
+
+if [ -e "$NVIM_DIR/lua/plugins/01.theme.lua" ]; then
+	echo "01.theme.lua does exist"
+else
+	echo "01.theme.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/01.theme.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/01.theme.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+
+if [ -e "$NVIM_DIR/lua/plugins/02.statusbar.lua" ]; then
+	echo "02.statusbar.lua does exist"
+else
+	echo "02.statusbar.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/02.statusbar.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/02.statusbar.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+#if [ -e "$NVIM_DIR/lua/plugins/.lua" ]; then
+#	echo ".lua does exist"
+#else
+#	echo ".lua does not exist"
+#	echo "ln -sf "$PWD/nvim/lua/plugins/0X.lua" "$NVIM_DIR/lua/plugins""
+#	ln -sf "$PWD/nvim/lua/plugins/0X.lua" "$NVIM_DIR/lua/plugins"
+#fi
