@@ -1,23 +1,62 @@
 #!/bin/bash
 
 
+#-------------------------------------------------------------------------------
+
 export XDG_CONFIG_HOME="$HOME"/.config
+FONT_DIR="/usr/share/fonts"
 TMUX_DIR="$XDG_CONFIG_HOME"/tmux
 NVIM_DIR="$XDG_CONFIG_HOME"/nvim
 
+#-------------------------------------------------------------------------------
 
-echo "[01]/[XX] setting up tmux"
+echo "[01]/[xx] setting up fonts"
+
+if [ -d "$FONT_DIR" ]; then
+    echo "fonts directory does exist"
+else
+    echo "fonts directory does not exist"
+    echo "mkdir "$FONT_DIR""
+    mkdir "$FONT_DIR"
+fi
+
+if [ -e "$FONT_DIR/AnonymiceProNerdFont-Regular.ttf" ]; then
+    echo "AnonymicePro Font does exist"
+else
+    echo "AnonymicePro Font does not exist"
+    echo "cp "$PWD/fonts/AnonymiceProNerdFont-Regular.ttf" "$FONT_DIR/AnonymiceProNerdFont-Regular.ttf""
+    cp "$PWD/fonts/AnonymiceProNerdFont-Regular.ttf" "$FONT_DIR/AnonymiceProNerdFont-Regular.ttf"
+fi
+
+#-------------------------------------------------------------------------------
+
+echo "[02]/[xx] setting up starship"
+
+if [ -e "$XDG_CONFIG_HOME/starship.toml" ]; then
+	echo "starship.toml does exist"
+else
+	echo "starship.toml does not exist"
+    echo "linking starship.toml"
+	echo "ln -sf "$PWD/starship/starship.toml" "$XDG_CONFIG_HOME""
+	ln -sf "$PWD/starship/starship.toml" "$XDG_CONFIG_HOME"
+fi
+
+#-------------------------------------------------------------------------------
+
+echo "[03]/[xx] setting up bash"
+
+#-------------------------------------------------------------------------------
+
+echo "[04]/[XX] setting up tmux"
 
 if [ -d "$TMUX_DIR"  ]; then
 	echo "tmux directory does exist"
 else	
 	echo "tmux directory does not exist"
-	echo "creating tmux directory"
 	echo "mkdir "$TMUX_DIR""
 	mkdir "$TMUX_DIR"
 fi
 
-echo "linking tmux.conf"
 if [ -e "$TMUX_DIR/tmux.conf" ]; then
 	echo "tmux.conf does exist"
 else
@@ -35,8 +74,9 @@ else
 	git clone https://github.com/tmux-plugins/tpm "$TMUX_DIR/plugins/tpm"
 fi
 
+#-------------------------------------------------------------------------------
 
-echo "[02]/[XX] setitng up neovim"
+echo "[05]/[XX] setitng up neovim"
 if [ -d "$NVIM_DIR" ]; then
 	echo "nvim directory does exist"
 else
@@ -47,7 +87,6 @@ else
 	mkdir "$NVIM_DIR/lua/plugins"
 fi
 
-echo "linking nvim configuration files"
 if [ -e "$NVIM_DIR/init.lua" ]; then
 	echo "init.lua does exist"
 else
@@ -102,6 +141,30 @@ else
 	echo "04.-fuzzy-finder.lua does not exist"
 	echo "ln -sf "$PWD/nvim/lua/plugins/04.fuzzy-finder.lua" "$NVIM_DIR/lua/plugins""
 	ln -sf "$PWD/nvim/lua/plugins/04.fuzzy-finder.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+if [ -e "$NVIM_DIR/lua/plugins/05.lsp-config.lua" ]; then
+	echo "05.lsp-config.lua does exist"
+else
+	echo "05.lsp-config.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/05.lsp-config.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/05.lsp-config.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+if [ -e "$NVIM_DIR/lua/plugins/06.lsp-completions.lua" ]; then
+	echo "06.lsp-completions.lua does exist"
+else
+	echo "06.lsp-completions.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/06.lsp-coompletions.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/06.lsp-completions.lua" "$NVIM_DIR/lua/plugins"
+fi
+
+if [ -e "$NVIM_DIR/lua/plugins/07.lsp-diagnostics.lua" ]; then
+	echo "07.lsp-diagnostics.lua does exist"
+else
+	echo "07.lsp-diagnostics.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/07.lsp-diagnostics.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/07.lsp-diagnostics.lua" "$NVIM_DIR/lua/plugins"
 fi
 
 #if [ -e "$NVIM_DIR/lua/plugins/0X.lua" ]; then
