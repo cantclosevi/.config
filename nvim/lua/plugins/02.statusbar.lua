@@ -7,14 +7,8 @@ return {
 		dependencies = { 'nvim-tree/nvim-web-devicons' },
 		config = function()
 			require( "lualine" ).setup({
-				options = { theme = "nightfly" }
+				options = { theme = "catppuccin" }
 			})
 		end
 	}
 }
--- THEMES
--- dracula
--- iceberg_dark
--- iceberg_light
--- nightfly
--- 16color

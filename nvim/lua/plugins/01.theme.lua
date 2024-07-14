@@ -8,9 +8,3 @@ return {
 		end
 	}
 }
-
--- THEMES:
--- frappe
--- machiato
--- latte
--- mocha
