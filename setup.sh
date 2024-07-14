@@ -163,7 +163,7 @@ if [ -e "$NVIM_DIR/lua/plugins/3.3-lsp-completions.lua" ]; then
 	echo "3.3-lsp-completions.lua does exist"
 else
 	echo "3.3-lsp-completions.lua does not exist"
-	echo "ln -sf "$PWD/nvim/lua/plugins/3.3-lsp-coompletions.lua" "$NVIM_DIR/lua/plugins""
+	echo "ln -sf "$PWD/nvim/lua/plugins/3.3-lsp-completions.lua" "$NVIM_DIR/lua/plugins""
 	ln -sf "$PWD/nvim/lua/plugins/3.3-lsp-completions.lua" "$NVIM_DIR/lua/plugins"
 fi
 
