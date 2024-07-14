@@ -175,6 +175,14 @@ else
 	ln -sf "$PWD/nvim/lua/plugins/3.4-lsp-diagnostics.lua" "$NVIM_DIR/lua/plugins"
 fi
 
+if [ -e "$NVIM_DIR/lua/plugins/4.1-debugger.lua" ]; then
+	echo "4.1-debugger.lua does exist"
+else
+	echo "4.1-debugger.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/4.1-debugger.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/4.1-debugger.lua" "$NVIM_DIR/lua/plugins"
+fi
+
 #if [ -e "$NVIM_DIR/lua/plugins/0X.lua" ]; then
 #	echo ".lua does exist"
 #else
