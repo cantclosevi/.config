@@ -143,6 +143,14 @@ else
 	ln -sf "$PWD/nvim/lua/plugins/2.2-fuzzy-finder.lua" "$NVIM_DIR/lua/plugins"
 fi
 
+if [ -e "$NVIM_DIR/lua/plugins/2.3-tmux.lua" ]; then
+	echo "2.3-tmux.lua does exist"
+else
+	echo "2.3-tmux.lua does not exist"
+	echo "ln -sf "$PWD/nvim/lua/plugins/2.3-tmux.lua" "$NVIM_DIR/lua/plugins""
+	ln -sf "$PWD/nvim/lua/plugins/2.3-tmux.lua" "$NVIM_DIR/lua/plugins"
+fi
+
 if [ -e "$NVIM_DIR/lua/plugins/3.1-parser.lua" ]; then
 	echo "3.1-parser.lua does exist"
 else
